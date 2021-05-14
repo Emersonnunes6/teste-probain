@@ -8,6 +8,9 @@ const GlobalState = (props) => {
     const [characters, setCharacters] = useState([])
     const [starships, setStarships] = useState([])
     const [planets, setPlanets] = useState([])
+    const [detailsCharacter, setDetailsCharacter] = useState([])
+    const [detailsStarship, setDetailsStarship] = useState([])
+    const [detailsPlanet, setDetailsPlanet] = useState([])
 
     const getCharacters = () => {
         axios.get(BASE_URL+"people/")
@@ -36,10 +39,35 @@ const GlobalState = (props) => {
         })
     }
 
-    console.log(characters)
+    const getCharacterDetails = (id) => {
+        axios.get(BASE_URL+`people/${id}`)
+        .then((res) => {
+            setDetailsCharacter(res.data)
+        }).catch((err) => {
+            console.log(err.message)
+        })
+    }
+
+    const getStarshipDetails = (id) => {
+        axios.get(BASE_URL+`starships/${id}/`)
+        .then((res) => {
+            setDetailsStarship(res.data)
+        }).catch((err) => {
+            console.log(err.message)
+        })
+    }
+
+    const getPlanetDetails = (id) => {
+        axios.get(BASE_URL+`planets/${id}`)
+        .then((res) => {
+            setDetailsPlanet(res.data)
+        }).catch((err) => {
+            console.log(err.message)
+        })
+    }
     
-    const requests = {getCharacters, getStarships, getPlanets}
-    const states = {characters, starships, planets}
+    const requests = {getCharacters, getStarships, getPlanets, getCharacterDetails, getStarshipDetails, getPlanetDetails}
+    const states = {characters, starships, planets, detailsCharacter, detailsStarship, detailsPlanet}
 
     const data = {requests, states}
 

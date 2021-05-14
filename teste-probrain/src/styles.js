@@ -7,6 +7,10 @@ export const Div = styled.div`
 `
 
 export const Footer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 15vh;
     max-width: 100vw;
     background-color: grey;

@@ -13,6 +13,7 @@ const IconsButtons = (props) => {
             requests.getCharacters()
             props.setOpenWindow("characters")
         }else if(props.openWindow !== "characters" && props.openWindow !== ""){
+            requests.getCharacters()
             props.setOpenWindow("characters")
         }
         else if(props.openWindow === "characters"){
@@ -25,6 +26,7 @@ const IconsButtons = (props) => {
             requests.getStarships()
             props.setOpenWindow("starships")
         }else if(props.openWindow !== "starships" && props.openWindow !== ""){
+            requests.getStarships()
             props.setOpenWindow("starships")
         }
         else if(props.openWindow === "starships"){
@@ -37,6 +39,7 @@ const IconsButtons = (props) => {
             requests.getPlanets()
             props.setOpenWindow("planets")
         }else if(props.openWindow !== "planets" && props.openWindow !== ""){
+            requests.getPlanets()
             props.setOpenWindow("planets")
         }
         else if(props.openWindow === "planets"){
