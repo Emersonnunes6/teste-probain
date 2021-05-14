@@ -7,6 +7,20 @@ export const Card = styled.div`
     min-height: 0vh;
     width: 60vw;
     margin: 2vh;
+@media screen and (min-width: 320px) and (max-width: 700px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5vh;
+}
+@media screen and (min-width: 700px) and (max-width: 800px){
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+}
+@media screen and (min-width: 800px) and (max-width: 1000px){
+    grid-template-columns: auto auto auto;
+}
 `
 
 export const CardCategory = styled.div`
@@ -20,14 +34,25 @@ export const CardCategory = styled.div`
     background-color: black;
     border-radius: 10px;
     border: 2px yellow solid;
+    cursor: pointer;
 h3 {
     color: white;
     font-family: 'Josefin Sans';
 }
-
-h5 {
-    margin: 0;
-    color: white;
+:hover{
+    background-color: grey;
+    border: 2px black solid;
+h3 {
+    color: black;
+}
+button {
+    background-color: yellow;
+    color: black;
+}
+}
+@media screen and (min-width: 320px) and (max-width: 800px){
+    height: 30vh;
+    width: 30vh;
 }
 `
 
@@ -43,4 +68,14 @@ export const ButtonDetails = styled.button`
     background-color: yellow;
     color: black;
 }
+@media screen and (min-width: 320px) and (max-width: 800px){
+    width: 25vw;
+    height: 8vh;
+}
+`
+
+export const DivLoading = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `

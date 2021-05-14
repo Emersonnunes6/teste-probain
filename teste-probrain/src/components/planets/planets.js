@@ -1,12 +1,35 @@
-import { Card, CardCategory } from "../styles"
+import { useContext } from "react"
+import { useHistory } from 'react-router-dom';
+import GlobalStateContext from "../../globalState/globalStateContext"
+import { Card, CardCategory, ButtonDetails, DivLoading } from "../styles"
+import loadingPlanet from '../../img/loadingPlanet.gif'
+import { onClickDetailPlanet } from "../../routes/coordinator";
 
 const Planets = () => {
+    const history = useHistory()
+    const {states} = useContext(GlobalStateContext)
+
     return (
         <Card>
-            <CardCategory>
-                <h3>Planet</h3>
-                <h5>Height: 1.72</h5>
-            </CardCategory> 
+            {states.planets.length < 1 
+            ? 
+            <DivLoading>
+                <img alt="loading" src={loadingPlanet} ></img>
+                <h2 style={{color: 'yellow'}}>LOADING...</h2>
+            </DivLoading>
+            :
+            states.planets.map((planet) => {
+                return (
+                   <CardCategory key={planet.name}>
+                        <h3>{planet.name}</h3>
+                        <ButtonDetails 
+                            onClick={() => 
+                            {onClickDetailPlanet(history, states.planets.indexOf(planet) + 1)}}> 
+                            DETAILS</ButtonDetails>
+                    </CardCategory>  
+                )
+            })        
+            }
         </Card>
     )
 }

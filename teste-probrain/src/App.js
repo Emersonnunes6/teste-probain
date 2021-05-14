@@ -1,13 +1,15 @@
 import GlobalState from "./globalState/globalState";
-import HomePage from "./pages/homePage/homePage";
+import Router from "./routes/router";
 import { Div, Footer } from "./styles";
 
 function App() {
   return (
     <GlobalState>
       <Div>
-        <HomePage/>
-        <Footer/>
+        <Router/>
+        <Footer>
+          <h3>2021 - EMERSON NUNES</h3>
+        </Footer>
       </Div>
     </GlobalState>
   );

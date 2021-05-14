@@ -1,4 +1,4 @@
-import { PrincipalDiv, Logo } from './styles'
+import { PrincipalDiv, Logo } from '../styles'
 import logoStarWars from '../../img/starWars.png'
 import IconsButtons from '../../components/buttons/IconsButtons'
 import Characters from '../../components/characters/characters'
